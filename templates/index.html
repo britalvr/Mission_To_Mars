@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <title>Mission To Mars</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/></body>
-    <link href="style.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
 </head>
 <body>
 
@@ -16,6 +16,7 @@
         </div>
     </div>
     <div class="container">
+        {% for mars in mars.news_content %}
         <div class="row" id="mars-news">
             <div class="col-md-12">
                 <h2 class="heading">Latest Mars News</h2>
@@ -39,16 +40,15 @@
                     </ul>
                 </div>
                 <div class="row" id="mars-facts">
-                    <ul>
+                    <div class = "col-md-12">
                         <h2>Mars Facts</h2>
                         {{mars.mars_facts|safe}}
-                        <a href="{{mars.mars_facts}}"></a>
-                    </ul>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="container">
+    <div class="container"> 
         <div class="row text-center" id="mars-hemispheres">
             <div class="col-md-12">
                 <h2>Mars Hemispheres</h2>
@@ -56,13 +56,28 @@
             </div>
         </div>
         <div class="row">
-            {% for hem in mars.hem_image_urls %}
-            <div class="col-xs-3 col-sm-3 col-md-6">
-                <div class="thumbnail">
-                    <img src={{hem["img_url"]}} alt="...">
-                    <div class="caption">
-                        <h4>{{hem["title"]}}</h4>
-                    </div>
+            <div class="col-md-6 image-box">
+                <img src={{mars.hem_image_urls[0].img_url}} width ="100%"/>
+                <div class="caption">
+                    <p>{{mars.hem_image_urls[0].title}}</p>
+                </div>
+            </div>
+            <div class="col-md-6 image-box">
+                <img src={{mars.hem_image_urls[1].img_url}} width ="100%"/>
+                <div class="caption">
+                    <p>{{mars.hem_image_urls[1].title}}</p>
+                </div>
+            </div>
+            <div class="col-md-6 image-box">
+                <img src={{mars.hem_image_urls[2].img_url}} width ="100%"/>
+                <div class="caption">
+                    <p>{{mars.hem_image_urls[2].title}}</p>
+                </div>
+            </div>
+            <div class="col-md-6 image-box">
+                <img src={{mars.hem_image_urls[3].img_url}} width ="100%"/>
+                <div class="caption">
+                    <p>{{mars.hem_image_urls[3].title}}</p>
                 </div>
             </div>
             {% endfor %}
