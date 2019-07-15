@@ -22,7 +22,7 @@ mars_db.Mssion_To_Mars.insert(mars_doc)
 @app.route("/")
 def index():
     # mars_doc = mongo.db.mars.find()
-    # return render_template("index.html", dict = mars_doc)
+    # return render_template("index.html", mars = mars_doc)
     mars_doc = mars_db.Mission_To_Mars.find()
     return render_template("index.html", mars = mars_doc)
 
